@@ -5,12 +5,12 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000264">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000252">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: test" time="8.422182">
+      <testcase classname="fastlane.lanes" name="1: publish -PGITHUB_PUBLISH_TOKEN=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 -PGITHUB_REPO=jesusdmedinac/kmm-bridge --no-daemon --stacktrace" time="168.417819">
         
       </testcase>
     

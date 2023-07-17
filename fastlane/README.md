@@ -39,6 +39,22 @@ Submit a new Beta Build to Crashlytics Beta
 
 Deploy a new version to the Google Play
 
+### android puan
+
+```sh
+[bundle exec] fastlane android puan
+```
+
+Publish Android
+
+### android puio
+
+```sh
+[bundle exec] fastlane android puio
+```
+
+Publish iOS
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.

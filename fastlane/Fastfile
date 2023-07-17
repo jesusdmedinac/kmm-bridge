@@ -40,19 +40,19 @@ platform :android do
   lane :puan do
     env_properties = get_env_properties()
     github_publish_token = env_properties["GITHUB_PUBLISH_TOKEN"]
-    gradle(task: "shared:publishAndroidDebugPublicationToGitHubPackagesRepository shared:publishAndroidReleasePublicationToGitHubPackagesRepository -PGITHUB_PUBLISH_TOKEN=#{github_publish_token} -PGITHUB_REPO=jesusdmedinac/player-shared --no-daemon --stacktrace")
+    gradle(task: "publish -PGITHUB_PUBLISH_TOKEN=#{github_publish_token} -PGITHUB_REPO=jesusdmedinac/kmm-bridge --no-daemon --stacktrace")
   end
 
   desc "Publish iOS"
   lane :puio do
     env_properties = get_env_properties()
     github_publish_token = env_properties["GITHUB_PUBLISH_TOKEN"]
-    gradle(task: "shared:publishIosArm64PublicationToGitHubPackagesRepository shared:publishIosSimulatorArm64PublicationToGitHubPackagesRepository shared:publishIosX64PublicationToGitHubPackagesRepository -PGITHUB_PUBLISH_TOKEN=#{github_publish_token} -PGITHUB_REPO=beek/player-shared --no-daemon --stacktrace")
+    gradle(task: "publishIosArm64PublicationToGitHubPackagesRepository publishIosSimulatorArm64PublicationToGitHubPackagesRepository publishIosX64PublicationToGitHubPackagesRepository -PGITHUB_PUBLISH_TOKEN=#{github_publish_token} -PGITHUB_REPO=jesusdmedinac/kmm-bridge --no-daemon --stacktrace")
   end
 end
 
 def get_env_properties()
-  return File.open("../gradle.properties")
+  return File.open("../env.properties")
     .readlines
     .map(&:chomp) # Discard any newline characters (\n)
     .select { |it| it != ""  } # Filter empty elements
