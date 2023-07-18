@@ -37,10 +37,9 @@ platform :android do
   end
 
   desc "Publish Android"
-  lane :puan do
-    env_properties = get_env_properties()
-    github_publish_token = env_properties["GITHUB_PUBLISH_TOKEN"]
-    gradle(task: "publish -PGITHUB_PUBLISH_TOKEN=#{github_publish_token} -PGITHUB_REPO=jesusdmedinac/kmm-bridge --no-daemon --stacktrace")
+  lane :puan do |options|
+    github_publish_token = options[:GITHUB_PUBLISH_TOKEN]
+    gradle(task: "kmmBridgePublish -PGITHUB_PUBLISH_TOKEN=#{github_publish_token} -PGITHUB_REPO=jesusdmedinac/kmm-bridge --no-daemon --stacktrace")
   end
 
   desc "Publish iOS"
